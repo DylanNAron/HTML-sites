@@ -1,0 +1,41 @@
+<h1> Number Builder </h1>
+<h3> Select numbers to include in the total by clicking on the box to its left </h3>
+
+<input type="checkbox" onclick="onClickHandler(1)" id="1" value="1"> 1<br>
+<input type="checkbox" onclick="onClickHandler(2)" id="2" value="2"> 2<br>
+<input type="checkbox" onclick="onClickHandler(4)" id="4" value="4"> 4<br>
+<input type="checkbox" onclick="onClickHandler(8)" id="8" value="8"> 8<br>
+<input type="checkbox" onclick="onClickHandler(16)" id="16" value="16"> 16<br>
+<input type="checkbox" onclick="onClickHandler(32)" id="32" value="32"> 32<br>
+<input type="checkbox" onclick="onClickHandler(64)" id="64" value="64"> 64<br>
+<input type="checkbox" onclick="onClickHandler(128)" id="128" value="128"> 128<br>
+<input type="checkbox" onclick="onClickHandler(256)" id="256" value="256"> 256<br>
+<input type="checkbox" onclick="onClickHandler(512)" id="512" value="512"> 512<br>
+<input type="checkbox" onclick="onClickHandler(1024)" id="1024" value="1024"> 1024 <br>
+------<br>
+<input type="text" id="total" value="0"> total
+
+<img src="https://grad.miami.edu/_assets/images/homepage/full-width-slider/1600x5501.jpg" id="photo" style="display:none;"/>
+
+<script>
+	var sum = 0;
+	var foundingYear = 1925;
+	function onClickHandler(i){
+		if (document.getElementById(String(i)).checked){
+			sum += i;
+		}
+		else{
+			sum -= i;
+		}
+		document.getElementById("total").value = String(sum);
+
+		photo = document.getElementById("photo");
+		if(sum == foundingYear){
+			photo.style.display = "block";
+		}
+		else{
+			photo.style.display = "none";
+		}
+	}
+
+</script>

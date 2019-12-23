@@ -1,0 +1,17 @@
+<h1> Enter Name </h1>
+
+
+  1. Enter your name: <input type="text" id="name"><br>
+
+  2. Click Here when done: <input type="button" id="button" value="Here"><br>
+
+  3. Your Personalized Greeting: <input type="text" id="greeting">
+
+  <script> 
+  button = document.getElementById("button");
+  button.onclick = function(){
+  	greeting = "Greetings " + document.getElementById("name").value + "!";
+  	greetingBox = document.getElementById("greeting");
+  	greetingBox.value = greeting;
+  }
+  </script>

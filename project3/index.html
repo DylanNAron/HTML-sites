@@ -1,0 +1,177 @@
+<html>
+<h1> Double Hashing </h1>
+
+<style>
+.arraytext {
+   float: left; 
+   text-align: center; 
+   width: 100%; 
+   margin-top: .5em ;
+   font-size: 1.5em ;
+}
+
+.arraycell {
+	float: left;
+	width: 3em ;
+	height: 3em ;
+	background: #999;
+}
+
+#pseudo{
+	width:4in;
+}
+
+</style>
+
+<div id="array">
+<div class="arraycell" id="n0">
+<div id="array0" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n1">
+<div id="array1" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n2">
+<div id="array2" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n3">
+<div id="array3" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n4">
+<div id="array4" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n5">
+<div id="array5" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n6">
+<div id="array6" class="arraytext"></div>
+</div>
+<div id="array">
+<div class="arraycell" id="n7">
+<div id="array7" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n8">
+<div id="array8" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n9">
+<div id="array9" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n10">
+<div id="array10" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n11">
+<div id="array11" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n12">
+<div id="array12" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n13">
+<div id="array13" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n14">
+<div id="array14" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n15">
+<div id="array15" class="arraytext"></div>
+</div>
+
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15
+<br>
+Value<input type="text" id="hashin"><br>
+<input type="button" id="button" value="Enter" onclick="Enter()"><br>
+<input type="button" id="button2" value="Clear" onclick="Clear()"><br>
+
+<script>
+	
+document.getElementById("n0").style.background = "red";
+document.getElementById("n1").style.background = "orange";
+document.getElementById("n2").style.background = "yellow";
+document.getElementById("n3").style.background = "green";
+document.getElementById("n4").style.background = "blue";
+document.getElementById("n5").style.background = "cyan";
+document.getElementById("n6").style.background = "purple";
+document.getElementById("n7").style.background = "red";
+document.getElementById("n8").style.background = "orange";
+document.getElementById("n9").style.background = "yellow";
+document.getElementById("n10").style.background = "green";
+document.getElementById("n11").style.background = "blue";
+document.getElementById("n12").style.background = "cyan";
+document.getElementById("n13").style.background = "purple";
+document.getElementById("n14").style.background = "red";
+document.getElementById("n15").style.background = "orange";
+
+function Clear()
+{
+	document.getElementById("array0").innerHTML = "";
+	document.getElementById("array1").innerHTML = "";
+	document.getElementById("array2").innerHTML = "";
+	document.getElementById("array3").innerHTML = "";
+	document.getElementById("array4").innerHTML = "";
+	document.getElementById("array5").innerHTML = "";
+	document.getElementById("array6").innerHTML = "";
+	document.getElementById("array7").innerHTML = "";
+	document.getElementById("array8").innerHTML = "";
+	document.getElementById("array9").innerHTML = "";
+	document.getElementById("array10").innerHTML = "";
+	document.getElementById("array11").innerHTML = "";
+	document.getElementById("array12").innerHTML = "";
+	document.getElementById("array13").innerHTML = "";
+	document.getElementById("array14").innerHTML = "";
+	document.getElementById("array15").innerHTML = "";
+
+
+}
+
+function Enter()
+{
+	var x;
+
+	x=document.getElementById("hashin").value;
+	if(H(x)==null){
+		alert("There was an unresolvable collison");
+	}
+	else{
+		document.getElementById("array"+H(x)).innerHTML = x;
+		// alert("array"+H(x));
+	}
+
+
+
+}
+
+function F(x){
+	return (x%16);
+
+}
+function G(x){
+	return (2*(x%4)+1);
+}
+function H(x){
+	var i=0;
+	var value=F(x)+G(x)
+	for(i=0;i<16;i++){
+		var value=(F(x)+i*G(x))%16;
+		if (document.getElementById("array"+value).innerHTML == ""){
+			return value;
+		}
+
+	}
+	return null;
+
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,140 @@
+<html>
+<h1> Randomize in Place </h1>
+
+<style>
+.arraytext {
+   float: left; 
+   text-align: center; 
+   width: 100%; 
+   margin-top: .5em ;
+   font-size: 1.5em ;
+}
+
+.arraycell {
+	float: left;
+	width: 3em ;
+	height: 3em ;
+	background: #999;
+}
+
+#pseudo{
+	width:4in;
+}
+
+
+</style>
+
+
+<h4> Pseudo Code: </h4>
+
+<div id="pseudo">
+<div>RandomizeInPlace(A)</div>
+<div id="line1">	1. n = A.length</div>
+<div id="line2">	2. for i = 1 to n</div>
+<div id="line3">	3. 		swap A[i] with A[Random(i,n)]</div>
+</div>
+
+<br>
+
+<div id="array">
+<div class="arraycell" id="n1">
+<div id="array1" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n2">
+<div id="array2" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n3">
+<div id="array3" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n4">
+<div id="array4" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n5">
+<div id="array5" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n6">
+<div id="array6" class="arraytext"></div>
+</div>
+<div class="arraycell" id="n7">
+<div id="array7" class="arraytext"></div>
+</div>
+
+<input type="button" id="button" value="Next" onclick="next()"><br>
+<input type="button" id="button2" value="Restart" onclick="restart()"><br>
+
+
+<script>
+
+
+	var i=0;
+	var numTimesPushed = 0;
+	document.getElementById("array1").innerHTML = Math.floor(Math.random()*10)
+	document.getElementById("array2").innerHTML = Math.floor(Math.random()*10)
+	document.getElementById("array3").innerHTML = Math.floor(Math.random()*10)
+	document.getElementById("array4").innerHTML = Math.floor(Math.random()*10)
+	document.getElementById("array5").innerHTML = Math.floor(Math.random()*10)
+	document.getElementById("array6").innerHTML = Math.floor(Math.random()*10)
+	document.getElementById("array7").innerHTML = Math.floor(Math.random()*10)
+	
+	function next(){
+		numTimesPushed++;
+		if(numTimesPushed==1){
+			document.getElementById("line1").style.background = "yellow";
+		}
+		else{
+
+			document.getElementById("line1").style.background = "none";
+			document.getElementById("line2").style.background = "yellow";
+			document.getElementById("line3").style.background = "yellow";
+			document.getElementById("n1").style.background = "#999"
+			document.getElementById("n2").style.background = "#999"
+			document.getElementById("n3").style.background = "#999"
+			document.getElementById("n4").style.background = "#999"
+			document.getElementById("n5").style.background = "#999"
+			document.getElementById("n6").style.background = "#999"
+			document.getElementById("n7").style.background = "#999"
+
+			i++;
+			document.getElementById("n"+i).style.background="green";
+
+			var tmp = Math.floor(Math.random()*((7-i)+1)) + i;
+			document.getElementById("n"+tmp).style.background="pink";
+
+			
+			var temp=document.getElementById("array"+tmp).innerHTML;
+			document.getElementById("array"+tmp).innerHTML=document.getElementById("array"+i).innerHTML;
+			document.getElementById("array"+i).innerHTML=temp;
+
+
+		}
+		}
+
+	function restart(){
+
+		numTimesPushed = 0;
+		i=0;
+		document.getElementById("array1").innerHTML = Math.floor(Math.random()*10)
+		document.getElementById("array2").innerHTML = Math.floor(Math.random()*10)
+		document.getElementById("array3").innerHTML = Math.floor(Math.random()*10)
+		document.getElementById("array4").innerHTML = Math.floor(Math.random()*10)
+		document.getElementById("array5").innerHTML = Math.floor(Math.random()*10)
+		document.getElementById("array6").innerHTML = Math.floor(Math.random()*10)
+		document.getElementById("array7").innerHTML = Math.floor(Math.random()*10)
+		document.getElementById("line1").style.background = "none";
+		document.getElementById("line2").style.background = "none";
+		document.getElementById("line3").style.background = "none";
+		document.getElementById("n1").style.background = "#999"
+		document.getElementById("n2").style.background = "#999"
+		document.getElementById("n3").style.background = "#999"
+		document.getElementById("n4").style.background = "#999"
+		document.getElementById("n5").style.background = "#999"
+		document.getElementById("n6").style.background = "#999"
+		document.getElementById("n7").style.background = "#999"
+
+
+	
+	}
+</script>
+
+
+</html>
